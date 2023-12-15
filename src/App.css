@@ -10,3 +10,6 @@ body{
 .title{
   @apply text-4xl text-center font-extrabold
 }
+.heartStar {
+  border-radius: 10px 28px 10px 28px;
+}
