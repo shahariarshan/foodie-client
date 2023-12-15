@@ -3,8 +3,10 @@ import Intro from "../../components/Intro"
 
 const Home = () => {
   return (
-    <div>
+    <div >
+        <div className="mx-auto container ">
         <Intro/>
+        </div>
     </div>
   )
 }
