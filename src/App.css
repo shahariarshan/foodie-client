@@ -4,3 +4,9 @@ body{
   font-family: 'Inter', sans-serif;
 }
 
+.subtitle{
+  @apply text-[#FF6868] text-center uppercase
+}
+.title{
+  @apply text-4xl text-center font-extrabold
+}
