@@ -21,11 +21,14 @@ const Card = ({ item }) => {
 
                 <FaHeart className="h-10 w-10 p-2 cursor-pointer "></FaHeart>
             </div>
-            <Link to={`/menu/${_id}`}>
+            <Link >
                 <figure><img className="lg:px-10 hover:scale-125 duration-200 transition-all " src={image} alt="food" /></figure>
             </Link>
             <div className="card-body">
+               
+                <Link to={`/menu/${_id}`}>
                 <h2 className="card-title">{name}</h2>
+            </Link>
                 <p>{recipe}</p>
                 <p className="font-bold text-lg"><span className="text-xs">$</span>{price}</p>
 
