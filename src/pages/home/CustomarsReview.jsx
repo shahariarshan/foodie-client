@@ -1,12 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 
 
 const CustomersReview = () => {
     return (
         <div className="flex flex-col lg:flex-row-reverse gap-10 items-center justify-center mt-24">
-            <div className="w-[50%">
-                <img src="/images/home/testimonials/testimonials.png" className="w-[506px] h-[744px]" alt="" />
-
-            </div>
+           
             <div className="w-[50% space-y-5">
                 <h2 className="text-[#FF6868]  uppercase">Testimonials</h2>
                 <h2 className="text-4xl  font-extrabold">What Our Customers <br /> Say About Us</h2>
@@ -39,6 +37,10 @@ const CustomersReview = () => {
                         </div></span><span className="font-semibold">4.9</span>(18.6k Reviews)</p>
                     </div>
                 </div>
+            </div>
+            <div className="w-[50%">
+                <img src="/images/home/testimonials/testimonials.png" className="w-[506px] h-[744px]" alt="" />
+
             </div>
 
 
