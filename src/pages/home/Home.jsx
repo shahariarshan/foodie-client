@@ -1,5 +1,6 @@
 import Intro from "../../components/Intro"
 import Categories from "./Categories"
+import CustomersReview from "./CustomarsReview"
 import SpecialDishes from "./SpecialDishes"
 
 
@@ -10,6 +11,7 @@ const Home = () => {
         <Intro/>
         <Categories/>
         <SpecialDishes/>
+        <CustomersReview/>
         </div>
     </div>
   )
