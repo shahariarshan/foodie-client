@@ -35,6 +35,7 @@ const SpecialDishes = () => {
                 setRecipes(categoryFilter)
             })
     }, [])
+    
     const settings = {
         dots: true,
         infinite: false,
@@ -67,10 +68,11 @@ const SpecialDishes = () => {
                     slidesToScroll: 1
                 }
             }
+           
         ],
+       
         prevArrow:<simplePreviousArrow/>,
         nextArrow:<simpleNextArrow/>
-
     };
     return (
         <div className="mt-16 ">
