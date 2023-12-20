@@ -9,7 +9,9 @@ const Main = () => {
     return (
         <div>
             <Navbar/>
+            <div className="min-h-full">
             <Outlet></Outlet>
+            </div>
             <Footer/>
         </div>
     );

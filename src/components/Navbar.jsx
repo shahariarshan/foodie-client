@@ -3,59 +3,59 @@ import { useEffect, useState } from 'react';
 import logo from '/Green_Simple_Modern_Healthy_Food_Logo-removebg-preview.png'
 import { BiSolidPhoneCall } from "react-icons/bi";
 const Navbar = () => {
-    const [isSticky,setSticky] = useState(false)
-    useEffect(()=>{
-        const handelScroll =() =>{
-            const offset= window.scrollY
-            if(offset >0){
+    const [isSticky, setSticky] = useState(false)
+    useEffect(() => {
+        const handelScroll = () => {
+            const offset = window.scrollY
+            if (offset > 0) {
                 setSticky(true)
             }
-            else{
+            else {
                 setSticky(false)
             }
         }
-        window.addEventListener('scroll',handelScroll);
-        return ()=>{
-            window.addEventListener('scroll',handelScroll);
+        window.addEventListener('scroll', handelScroll);
+        return () => {
+            window.addEventListener('scroll', handelScroll);
         }
     }
-   
-    ,[])
+
+        , [])
     const navLink =
-      (
-        <>
-        <li><a>Home</a></li>
-        <li tabIndex={0}>
-            <details>
-                <summary>Menu</summary>
-                <ul className="p-2">
-                    <li><a>All</a></li>
-                    <li><a>Pizza</a></li>
-                    <li><a>Submenu 2</a></li>
-                </ul>
+        (
+            <>
+                <li><a href='/'>Home</a></li>
+                <li tabIndex={0}>
+                    <details>
+                        <summary>Menu</summary>
+                        <ul className="p-2">
+                            <li><a href='/menu'>All</a></li>
+                            <li><a>Salad</a></li>
+                            <li><a> Pizza</a></li>
+                        </ul>
 
 
-            </details>
+                    </details>
 
-        </li>
-        <li tabIndex={0}>
-            <details>
-                <summary>Services</summary>
-                <ul className="p-2">
-                    <li><a>Online Order</a></li>
-                    <li><a>Table Booking</a></li>
-                    <li><a>Order Tracking</a></li>
-                </ul>
+                </li>
+                <li tabIndex={0}>
+                    <details>
+                        <summary>Services</summary>
+                        <ul className="p-2">
+                            <li><a>Online Order</a></li>
+                            <li><a>Table Booking</a></li>
+                            <li><a>Order Tracking</a></li>
+                        </ul>
 
-            </details>
+                    </details>
 
-        </li>
-        <li><a>Offers</a></li>
-    </>
-      )
+                </li>
+                <li><a>Offers</a></li>
+            </>
+        )
     return (
         <header className='max-w-screen-2xl  container mx-auto fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out'>
-            <div className={`navbar xl:px-24 h-24 ${isSticky ? "shadow-md bg-base-100 transition-all duration-300 ease-in-out":""}`}>
+            <div className={`navbar xl:px-24 h-24 ${isSticky ? "shadow-md bg-base-100 transition-all duration-300 ease-in-out" : ""}`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

@@ -12,7 +12,7 @@ const Services = () => {
     return (
         <div>
             <div className="flex flex-col lg:flex-row-reverse gap-10 items-center justify-center mt-20">
-                <div className="w-[50%] grid sm:grid-cols-2 grid-cols-1 gap-5 lg:ml-12">
+                <div className="lg:w-[50%] grid sm:grid-cols-2 grid-cols-1 gap-5 lg:ml-12">
                     {
                         serviceList
                             .map((sCard,i) => <ServicesCards
@@ -22,7 +22,7 @@ const Services = () => {
                     }
 
                 </div>
-                <div className="w-[50% space-y-5">
+                <div className="lg:w-[50%] space-y-5">
                     <h2 className="text-[#FF6868]  uppercase">Our Story & Services</h2>
                     <h2 className="text-4xl  font-extrabold">Our Culinary Journey <br /> And Services</h2>
                     <p>Rooted in passion, we curate unforgettable dining <br /> experiences and offer exceptional services, <br /> blending culinary artistry with warm hospitality.</p>
