@@ -100,7 +100,7 @@ const Menu = () => {
                         <h2 className="ml-3">Filters</h2>
                     </div>
                     <div>
-                        <select className="items-end" name="sort" id="sort" onChange={(e) => handelSortChange(e.target.value)}>
+                        <select className="items-end text-center" name="sort" id="sort" onChange={(e) => handelSortChange(e.target.value)}>
                             <option value="default">Default</option>
                             <option value="A-Z">A-Z</option>
                             <option value="Z-A">Z-A</option>

@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import logo from '/Green_Simple_Modern_Healthy_Food_Logo-removebg-preview.png'
-import { BiSolidPhoneCall } from "react-icons/bi";
+import Modal from './Modal';
 const Navbar = () => {
     const [isSticky, setSticky] = useState(false)
     useEffect(() => {
@@ -82,7 +82,21 @@ const Navbar = () => {
                             <span className="badge badge-sm indicator-item">0</span>
                         </div>
                     </div>
-                    <a className="btn bg-green flex gap-2 text-white rounded-full px-6"><BiSolidPhoneCall />Contact</a>
+                    <button
+                        onClick={() => document.getElementById('my_modal_3').showModal()}
+                        className="btn bg-green flex gap-2 text-white rounded-full px-3 "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                        Login</button >
+                    <dialog id="my_modal_3" className="modal">
+                        <div className="modal-box">
+                            <form method="dialog">
+                                {/* if there is a button in form, it will close the modal */}
+                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                            </form>
+                            <Modal></Modal>
+                        </div>
+                    </dialog>
                 </div>
             </div>
         </header>
