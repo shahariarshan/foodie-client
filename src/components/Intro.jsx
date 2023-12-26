@@ -27,7 +27,7 @@ const Intro = () => {
                         </div>
                         {/* 2 */}
                         <div className="md:flex hover:-translate-y-3 duration-100 transition-all hidden px-3 p-3 py-2 rounded-3xl gap-1 items-center shadow-2xl w-64">
-                            <img className="rounded-2xl h-24 p-4" src={b1} alt="" />
+                            <img className="rounded-2xl h-24 p-4 " src={b1} alt="" />
                             <div>
                                 <p className="font-semibold">Vegetarian salad</p>
                                 <div className="rating rating-xs">

@@ -2,13 +2,14 @@
 import { useContext, useEffect, useState } from 'react';
 import logo from '/Green_Simple_Modern_Healthy_Food_Logo-removebg-preview.png'
 import Modal from './Modal';
-import { Link } from 'react-router-dom';
+
 import { AuthContext } from '../context/AuthProvider';
+import Profile from './Profile';
 
 const Navbar = () => {
     const [isSticky, setSticky] = useState(false)
-    const {user} =useContext(AuthContext)
-    console.log(user);
+    const { user } = useContext(AuthContext);
+    // console.log(user);
     useEffect(() => {
         const handelScroll = () => {
             const offset = window.scrollY
@@ -59,7 +60,7 @@ const Navbar = () => {
             </>
         )
     return (
-        <header className='max-w-screen-2xl  container mx-auto fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out'>
+        <header className='max-w-screen-2xl z-50  container mx-auto fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out'>
             <div className={`navbar xl:px-24 h-24 ${isSticky ? "shadow-md bg-base-100 transition-all duration-300 ease-in-out" : ""}`}>
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -87,21 +88,28 @@ const Navbar = () => {
                             <span className="badge badge-sm indicator-item">0</span>
                         </div>
                     </div>
-                    <button
+                   {
+                    user?
+                    <>
+                    <Profile user={user} />
+                    </>
+                    :
+                   
+                     <button
                         onClick={() => document.getElementById('my_modal_3').showModal()}
                         className="btn bg-green flex gap-2 text-white rounded-full px-3 "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                         </svg>
                         Login</button >
+                   
+                   
+                   }
                     <dialog id="my_modal_3" className="modal">
                         <div className="modal-box">
-                            <form method="dialog">
                             <Modal></Modal>
-                            </form>
-                            <Link to='/' className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</Link>
-                        </div> 
-                        
-                    </dialog>        
+                        </div>
+
+                    </dialog>
                 </div>
             </div>
         </header>
