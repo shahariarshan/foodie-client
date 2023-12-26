@@ -1,9 +1,14 @@
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import logo from '/Green_Simple_Modern_Healthy_Food_Logo-removebg-preview.png'
 import Modal from './Modal';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthProvider';
+
 const Navbar = () => {
     const [isSticky, setSticky] = useState(false)
+    const {user} =useContext(AuthContext)
+    console.log(user);
     useEffect(() => {
         const handelScroll = () => {
             const offset = window.scrollY
@@ -91,12 +96,12 @@ const Navbar = () => {
                     <dialog id="my_modal_3" className="modal">
                         <div className="modal-box">
                             <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
-                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                            </form>
                             <Modal></Modal>
-                        </div>
-                    </dialog>
+                            </form>
+                            <Link to='/' className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</Link>
+                        </div> 
+                        
+                    </dialog>        
                 </div>
             </div>
         </header>

@@ -45,8 +45,8 @@ const Modal = () => {
                 </div>
                 <div className="form-control mt-6">
                     <input type="submit" value='Login' className="btn border-none text-white bg-green" />
-
                 </div>
+              
                 <div className="space-y-3 mt-5">
                     <p className="mx-auto text-center">Don't Have Account? <Link to='/signUp' className="text-black  font-medium">Sign Up</Link></p>
                     <h1 className="mx-auto text-center">or</h1>
