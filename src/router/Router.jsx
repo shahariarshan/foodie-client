@@ -3,6 +3,9 @@ import Main from "../layout/Main";
 import Home from "../pages/home/Home";
 import Menu from "../pages/Menu/Menu";
 import SignUp from "../pages/SignUp";
+import UpdateProfile from "../pages/Dashboard/UpdateProfile";
+import Cart from "../pages/Menu/Cart";
+
 
 
 const router = createBrowserRouter([
@@ -17,6 +20,14 @@ const router = createBrowserRouter([
         {
             path:'/menu',
             element:<Menu/>
+        },
+        {
+            path:'/cart-items',
+            element:<Cart/>
+        },
+        {
+            path:'/update-profile',
+            element:<UpdateProfile/>
         },
       ]
     },

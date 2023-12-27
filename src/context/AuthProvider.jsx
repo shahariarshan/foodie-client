@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firbase/firebase.config";
 
 export const AuthContext = createContext()
@@ -32,11 +32,12 @@ const AuthProvider = ({ children }) => {
  
     // logOut  
     const logOut =()=>{
-        signOut(auth)
+       return signOut(auth)
     }
     // update profile 
-    const updateProfile =(name,photoURL)=>{
-        updateProfile(auth.currentUser, {
+    const profileUpdate =(name,photoURL)=>{
+        updateProfile(auth.currentUser,
+         {
             displayName: name, photoURL: photoURL
           })
     }
@@ -61,7 +62,7 @@ const AuthProvider = ({ children }) => {
         loading,
         createUser,
         logIn,
-        updateProfile,
+        profileUpdate,
         logOut,
         signUpWithGoogle
     }
