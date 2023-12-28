@@ -26,7 +26,7 @@ const Card = ({ item }) => {
         console.log('Cart add', item);
         if (user && user.email) {
             const cartItem = { itemId: _id, name, quantity: 1, image, price, category, email: user?.email }
-            // console.log(cartItem);
+            console.log(cartItem);
             fetch('http://localhost:5000/carts', {
                 method: "POST",
                 headers: {
