@@ -2,14 +2,28 @@ import Swal from "sweetalert2";
 import useCart from "../../hooks/useCart";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import toast from "react-hot-toast";
 
 
 const Cart = () => {
     const [cart, refetch] = useCart()
     const { user } = useContext(AuthContext)
     const [cartItems, setCartItems] = useState([])
+
+    // calculate price based on quantity 
+    const totalPriceByQuantity =(c)=>{
+        return c.price * c.quantity
+    }
+    // calculate totalPrice 
+    const totalSubPrice = cart.reduce((total,c)=>{
+        return  total + totalPriceByQuantity(c)
+    },0);
+    const olderTotal=totalSubPrice
+
+    // quantity Decrease 
     const handelDecrease = (c) => {
         console.log(c._id);
+       if(c.quantity > 0){
         fetch(`http://localhost:5000/carts/${c._id}`, {
             method: "PUT",
             headers: {
@@ -30,8 +44,13 @@ const Cart = () => {
                     return cartItem;
                 })
                 setCartItems(updateCart)
-                refetch()
+
             })
+        refetch()
+       }
+       else{
+        toast('Hello Sir/Mam,Item must be  greater than Zero')
+       }
     }
     const handelInCrease = (c) => {
         // console.log(c._id);
@@ -55,8 +74,8 @@ const Cart = () => {
                     return cartItem;
                 })
                 setCartItems(updateCart)
-                refetch()
             })
+        refetch()
     }
 
     const handelDeleteCart = (c) => {
@@ -146,7 +165,7 @@ const Cart = () => {
                                                 className="w-10 mx-2 text-center appearance-none overflow-x-hidden" />
                                             <button className="btn btn-xs" onClick={() => handelInCrease(c)}>+</button>
                                         </td>
-                                        <td>{c.price}$</td>
+                                        <td>${totalPriceByQuantity(c).toFixed(2)}</td>
                                         <td>
                                             <button onClick={() => handelDeleteCart(c)} className="btn text-red"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -172,7 +191,7 @@ const Cart = () => {
                 <div className="md:w-1/2 space-y-3 mt-8 lg:mt-0">
                     <strong className="text-center">Shopping Details</strong>
                     <h2>Total Items:{cart.length}</h2>
-                    <h2>Total Items:$0.00</h2>
+                    <h2>Total Items:${olderTotal.toFixed(2)}</h2>
                     <button className="btn bg-green text-white">Checkout</button>
 
                 </div>
